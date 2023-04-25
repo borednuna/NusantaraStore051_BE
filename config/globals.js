@@ -6,4 +6,4 @@ const dbpass = process.env.DB_PASSWORD || '';
 const dbhost = process.env.DB_HOST || 'localhost';
 const dbport = process.env.DB_PORT || 3306;
 
-module.exports = { dbname, dbuser, dbpass, dbhost };
+module.exports = { dbname, dbuser, dbpass, dbhost, dbport };
