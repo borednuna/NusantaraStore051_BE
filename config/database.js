@@ -1,5 +1,5 @@
-const globals = require('./globals.js');
-const { dbname, dbuser, dbpass, dbhost } = globals;
+const globals = require('./globals');
+const { dbname, dbuser, dbpass, dbhost, dbport } = globals;
 
 module.exports = {
   "development": {
@@ -7,20 +7,23 @@ module.exports = {
     "password": dbpass,
     "database": dbname,
     "host": dbhost,
-    "dialect": "mysql"
+    "port": dbport,
+    "dialect": "postgres"
   },
   "test": {
     "username": dbuser,
     "password": dbpass,
-    "database": dbname,
+    "database": "database_test",
     "host": dbhost,
-    "dialect": "mysql"
+    "port": dbport,
+    "dialect": "postgres"
   },
   "production": {
     "username": dbuser,
     "password": dbpass,
-    "database": dbname,
+    "database": "database_production",
     "host": dbhost,
-    "dialect": "mysql"
+    "port": dbport,
+    "dialect": "postgres"
   }
 }

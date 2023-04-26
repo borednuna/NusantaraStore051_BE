@@ -13,12 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 const sequelize = new Sequelize(dbname, dbuser, dbpass, {
     host: dbhost,
     port: dbport,
-    dialect: 'mysql',
-    dialectOptions: {
-        ssl: {
-          rejectUnauthorized: true,
-        },
-      }
+    dialect: 'postgres'
 });
 
 const test = async () => {
