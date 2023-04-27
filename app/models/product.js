@@ -50,7 +50,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     stock: DataTypes.INTEGER,
-    sold: DataTypes.INTEGER
+    sold: DataTypes.INTEGER,
+    category: DataTypes.ENUM('Hobby', 'Houseware', 'Stationery', 'Electronics', 'Fashion', 'Kitchenware', 'Beauty', 'Books', 'Footwear', 'Other')
   }, {
     sequelize,
     modelName: 'product',

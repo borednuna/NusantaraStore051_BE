@@ -30,6 +30,9 @@ module.exports = {
       sold: {
         type: Sequelize.INTEGER
       },
+      category: {
+        type: Sequelize.ENUM('Hobby', 'Houseware', 'Stationery', 'Electronics', 'Fashion', 'Kitchenware', 'Beauty', 'Books', 'Footwear', 'Other')
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
