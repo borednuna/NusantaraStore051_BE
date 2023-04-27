@@ -19,20 +19,26 @@ module.exports = {
         phone: '085156961624',
         is_seller: true,
         password: 'nunanuna123',
+        created_at: new Date(),
+        updated_at: new Date()
       },
       {
         name: 'John Doe',
         email: 'johndoe@gmail.com',
         phone: '085156961624',
         is_seller: true,
-        password: 'johndoe123'
+        password: 'johndoe123',
+        created_at: new Date(),
+        updated_at: new Date()
       },
       {
         name: 'Jane Doe',
         email: 'janedoe@gmail.com',
         phone: '085156961624',
         is_seller: false,
-        password: 'janedoe123'
+        password: 'janedoe123',
+        created_at: new Date(),
+        updated_at: new Date()
       }
     ]);
   },

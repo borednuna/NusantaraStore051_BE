@@ -20,7 +20,9 @@ module.exports = {
       street_address: 'Jl. Raya Cipinang Jaya No. 88',
       postal_code: 13410,
       city: 'Jakarta Timur',
-      province: 'DKI Jakarta'
+      province: 'DKI Jakarta',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       user_id: 1,
@@ -29,7 +31,9 @@ module.exports = {
       street_address: 'Jl. Arif Rahman Hakim No. 48B',
       postal_code: 60111,
       city: 'Surabaya',
-      province: 'Jawa Timur'
+      province: 'Jawa Timur',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       user_id: 2,
@@ -38,6 +42,9 @@ module.exports = {
       street_address: 'Jl. Raya Cipinang Jaya No. 88',
       postal_code: 13410,
       city: 'Jakarta Timur',
+      province: 'DKI Jakarta',
+      createdAt: new Date(),
+      updatedAt: new Date()
     },
     {
       user_id: 3,
@@ -46,6 +53,8 @@ module.exports = {
       street_address: 'Jl. Raya Cipinang Jaya No. 88',
       postal_code: 13410,
       city: 'Jakarta Timur',
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
    ])
   },

@@ -19,7 +19,9 @@ module.exports = {
         dimensions: '5.9cm x 0.73cm x 8.46cm',
         color: '-',
         size: '-',
-        material: 'Paperback'
+        material: 'Paperback',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         product_id: 2,
@@ -27,7 +29,9 @@ module.exports = {
         dimensions: '10.16cm x 17.78cm',
         color: '-',
         size: '-',
-        material: 'Paperback'
+        material: 'Paperback',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         product_id: 3,
@@ -35,7 +39,9 @@ module.exports = {
         dimensions: '10.16cm x 17.78cm',
         color: '-',
         size: '-',
-        material: 'Vinyl'
+        material: 'Vinyl',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ])
   },
