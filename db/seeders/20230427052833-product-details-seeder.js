@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -11,47 +11,47 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-    await queryInterface.bulkInsert('product_details', [
+     */
+    await queryInterface.bulkInsert("product_details", [
       {
         product_id: 1,
         weight: 0.5,
-        dimensions: '5.9cm x 0.73cm x 8.46cm',
-        color: '-',
-        size: '-',
-        material: 'Paperback',
+        dimensions: "5.9cm x 0.73cm x 8.46cm",
+        color: "-",
+        size: "-",
+        material: "Paperback",
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       {
         product_id: 2,
         weight: 0.5,
-        dimensions: '10.16cm x 17.78cm',
-        color: '-',
-        size: '-',
-        material: 'Paperback',
+        dimensions: "10.16cm x 17.78cm",
+        color: "-",
+        size: "-",
+        material: "Paperback",
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
       },
       {
         product_id: 3,
         weight: 0.5,
-        dimensions: '10.16cm x 17.78cm',
-        color: '-',
-        size: '-',
-        material: 'Vinyl',
+        dimensions: "10.16cm x 17.78cm",
+        color: "-",
+        size: "-",
+        material: "Vinyl",
         createdAt: new Date(),
-        updatedAt: new Date()
-      }
-    ])
+        updatedAt: new Date(),
+      },
+    ]);
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-  }
+  },
 };
