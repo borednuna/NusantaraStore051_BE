@@ -7,43 +7,57 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      user_id:{
+      user_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'users',
-          key: 'id'
+          key: 'id',
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       stock: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       sold: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+      },
+      price: {
+        type: Sequelize.INTEGER,
       },
       category: {
-        type: Sequelize.ENUM('Hobby', 'Houseware', 'Stationery', 'Electronics', 'Fashion', 'Kitchenware', 'Beauty', 'Books', 'Footwear', 'Other')
+        type: Sequelize.ENUM(
+          'Hobby',
+          'Houseware',
+          'Stationery',
+          'Electronics',
+          'Fashion',
+          'Kitchenware',
+          'Beauty',
+          'Books',
+          'Footwear',
+          'Other',
+        ),
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('products');
-  }
+  },
 };

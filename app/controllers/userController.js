@@ -26,6 +26,32 @@ const getUserById = async (req, res) => {
   })  
 };
 
+const getUserAddress = async (req, res) => {
+  const id = req.params.id;
+  userService.getUserAddress(id).then((users) => {
+    if (!users) {
+      res.status(404).send({
+        status: "error",
+        message: error.message,
+        data: {},
+      });
+    } else {
+      res.status(200).send({
+        status: "success",
+        message: "Successfully retrieved user addresses",
+        data: users,
+      });
+    }
+  })
+  .catch(error => {
+    res.status(500).send({
+        status : 'error',
+        message : error.message,
+        data : {}
+    });
+  })  
+};
+
 const getUserByName = async (req, res) => {
   const name = req.params.name;
   userService.getUserByName(name).then((users) => {
@@ -77,6 +103,32 @@ const getSellerByName = async (req, res) => {
     });
   });
 };
+
+const getProductByUser = async (req, res) => {
+  const id = req.params.id;
+  userService.getProductByUser(id).then((products) => {
+    if (!products) {
+      res.status(404).send({
+        status: "error",
+        message: error.message,
+        data: {},
+      });
+    } else {
+      res.status(200).send({
+        status: "success",
+        message: "Successfully retrieved products by user",
+        data: products,
+      });
+    }
+  })
+  .catch(error => {
+    res.status(500).send({
+        status : 'error',
+        message : error.message,
+        data : {}
+    });
+  });
+}
 
 const createUser = async (req, res) => {
   const data = {
@@ -148,6 +200,8 @@ module.exports = {
   getUserById,
   getUserByName,
   getSellerByName,
+  getUserAddress,
+  getProductByUser,
   createUser,
   updateUser,
   deleteUser,

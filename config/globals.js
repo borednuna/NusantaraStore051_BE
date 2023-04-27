@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 
 const dbname = process.env.DB_NAME || 'test';
 const dbuser = process.env.DB_USERNAME || 'root';

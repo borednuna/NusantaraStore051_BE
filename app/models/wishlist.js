@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class wishlist extends Model {
     /**
@@ -13,21 +11,24 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.user, {
         foreignKey: 'id',
-        as: 'wl_id_user'
-      })
+        as: 'wl_id_user',
+      });
 
       this.belongsToMany(models.product, {
         through: 'detailed_wishlist',
         foreignKey: 'wishlist_id',
-        as: 'wl_id_product'
-      })
+        as: 'wl_id_product',
+      });
     }
   }
-  wishlist.init({
-    user_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'wishlist',
-  });
+  wishlist.init(
+    {
+      user_id: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: 'wishlist',
+    },
+  );
   return wishlist;
 };

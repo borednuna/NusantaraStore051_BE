@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class detailed_transaction extends Model {
     /**
@@ -13,22 +11,25 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.transaction, {
         foreignKey: 'id',
-        as: 'dt_id_transaction'
-      })
+        as: 'dt_id_transaction',
+      });
 
       this.belongsTo(models.product, {
         foreignKey: 'id',
-        as: 'dt_id_product'
-      })
+        as: 'dt_id_product',
+      });
     }
   }
-  detailed_transaction.init({
-    transaction_id: DataTypes.INTEGER,
-    product_id: DataTypes.INTEGER,
-    item_amount: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'detailed_transaction',
-  });
+  detailed_transaction.init(
+    {
+      transaction_id: DataTypes.INTEGER,
+      product_id: DataTypes.INTEGER,
+      item_amount: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: 'detailed_transaction',
+    },
+  );
   return detailed_transaction;
 };
