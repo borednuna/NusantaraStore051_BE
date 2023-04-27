@@ -11,6 +11,7 @@ const addressRoutes = require('../app/routes/addressRoute');
 const productDetailsRoutes = require('../app/routes/productDetailsRoute');
 const wishlistRoutes = require('../app/routes/wishlistRoute');
 const detailedWishlistRoutes = require('../app/routes/detailedWishlistRoute');
+const transactionRoutes = require('../app/routes/transactionRoute');
 
 app.use(cors());
 app.use(express.json());
@@ -26,5 +27,6 @@ app.use('/addresses', addressRoutes);
 app.use('/product_details', productDetailsRoutes);
 app.use('/wishlists', wishlistRoutes);
 app.use('/detailed_wishlists', detailedWishlistRoutes);
+app.use('/transactions', transactionRoutes);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
