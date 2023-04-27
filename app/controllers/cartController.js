@@ -92,7 +92,7 @@ const deleteCart = (req, res) => {
     .catch((error) => {
       res.status(500).send({
         status: 'error',
-        message: err.message,
+        message: error.message,
         data: {},
       });
     });

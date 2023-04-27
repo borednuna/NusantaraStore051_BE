@@ -45,6 +45,15 @@ const getProductByUser = async (id) => {
   }
 };
 
+const getTransactionByUser = async (id) => {
+  try {
+    const users = await userRepository.getTransactionByUser(id);
+    return users;
+  } catch (error) {
+    return error;
+  }
+};
+
 const createUser = async (data) => {
   try {
     const user = await userRepository.createUser(data);
@@ -78,6 +87,7 @@ module.exports = {
   getSellerByName,
   getUserAddress,
   getProductByUser,
+  getTransactionByUser,
   createUser,
   updateUser,
   deleteUser,

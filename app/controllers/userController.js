@@ -167,6 +167,34 @@ const createUser = async (req, res) => {
     });
 };
 
+const getTransactionByUser = async (req, res) => {
+  const id = req.params.id;
+  userService
+    .getTransactionByUser(id)
+    .then((transactions) => {
+      if (!transactions) {
+        res.status(404).send({
+          status: 'error',
+          message: error.message,
+          data: {},
+        });
+      } else {
+        res.status(200).send({
+          status: 'success',
+          message: 'Successfully retrieved transactions by user',
+          data: transactions,
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({
+        status: 'error',
+        message: error.message,
+        data: {},
+      });
+    });
+};
+
 const updateUser = (req, res) => {
   const id = req.params.id;
   userService
@@ -213,6 +241,7 @@ module.exports = {
   getSellerByName,
   getUserAddress,
   getProductByUser,
+  getTransactionByUser,
   createUser,
   updateUser,
   deleteUser,

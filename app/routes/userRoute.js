@@ -6,6 +6,7 @@ router.get('/name/:name', userController.getUserByName);
 router.get('/seller_name/:seller_name', userController.getSellerByName);
 router.get('/user_address/:id', userController.getUserAddress);
 router.get('/product_by_user/:id', userController.getProductByUser);
+router.get('/transaction_by_user/:id', userController.getTransactionByUser);
 router.post('/', userController.createUser);
 router.put('/:id', userController.updateUser);
 router.delete('/:id', userController.deleteUser);
