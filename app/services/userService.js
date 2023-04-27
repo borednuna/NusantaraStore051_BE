@@ -1,4 +1,4 @@
-const userRepository = require("../repositories/userRepository");
+const userRepository = require('../repositories/userRepository');
 
 const getUserById = async (id) => {
   try {
@@ -43,7 +43,7 @@ const getProductByUser = async (id) => {
   } catch (error) {
     return error;
   }
-}
+};
 
 const createUser = async (data) => {
   try {

@@ -1,7 +1,7 @@
-const { Op } = require("sequelize");
-const { user } = require("../models");
-const { address } = require("../models/address");
-const { product } = require("../models/product");
+const { Op } = require('sequelize');
+const { user } = require('../models');
+const { address } = require('../models/address');
+const { product } = require('../models/product');
 
 const getUserById = (id) => {
   return user.findOne({
@@ -37,28 +37,28 @@ const getUserAddress = (id) => {
     include: {
       model: address,
       where: {
-        user_id: id
-      }
+        user_id: id,
+      },
     },
     where: {
-      id: id
-    }
-  })
-}
+      id: id,
+    },
+  });
+};
 
 const getProductByUser = (id) => {
   return user.findAll({
     include: {
       model: product,
       where: {
-        user_id: id
-      }
+        user_id: id,
+      },
     },
     where: {
-      id: id
-    }
-  })
-}
+      id: id,
+    },
+  });
+};
 
 const createUser = (data) => {
   return user.create(data);
