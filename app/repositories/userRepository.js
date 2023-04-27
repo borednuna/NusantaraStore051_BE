@@ -32,34 +32,6 @@ const getSellerByName = (name) => {
   });
 };
 
-const getUserAddress = (id) => {
-  return user.findAll({
-    include: {
-      model: address,
-      where: {
-        user_id: id
-      }
-    },
-    where: {
-      id: id
-    }
-  })
-}
-
-const getProductByUser = (id) => {
-  return user.findAll({
-    include: {
-      model: product,
-      where: {
-        user_id: id
-      }
-    },
-    where: {
-      id: id
-    }
-  })
-}
-
 const createUser = (data) => {
   return user.create(data);
 };
@@ -84,8 +56,6 @@ module.exports = {
   getUserById,
   getUserByName,
   getSellerByName,
-  getUserAddress,
-  getProductByUser,
   createUser,
   updateUser,
   deleteUser,

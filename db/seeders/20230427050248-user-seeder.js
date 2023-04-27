@@ -19,8 +19,8 @@ module.exports = {
         phone: "085156961624",
         is_seller: true,
         password: "nunanuna123",
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
       },
       {
         name: "John Doe",
@@ -28,8 +28,8 @@ module.exports = {
         phone: "085156961624",
         is_seller: true,
         password: "johndoe123",
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
       },
       {
         name: "Jane Doe",
@@ -37,8 +37,8 @@ module.exports = {
         phone: "085156961624",
         is_seller: false,
         password: "janedoe123",
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        created_at: new Date(),
+        updated_at: new Date(),
       },
     ]);
   },

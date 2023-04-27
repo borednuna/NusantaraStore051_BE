@@ -11,22 +11,6 @@ const getCartById = (id) => {
     )
 }
 
-const getCartItems = (id) => {
-    return cart.findAll(
-        {
-            include: [{
-                model: user,
-                where: {
-                    user_id: id
-                }
-            }],
-            where : {
-                id: id
-            }
-        }
-    )
-}
-
 const createCart = (data) => {
     return cart.create(data);
 }
@@ -41,7 +25,6 @@ const deleteCart = (id) => {
 
 module.exports = {
     getCartById,
-    getCartItems,
     createCart,
     deleteCart
 }

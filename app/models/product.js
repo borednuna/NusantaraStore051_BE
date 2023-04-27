@@ -50,7 +50,6 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.STRING,
       stock: DataTypes.INTEGER,
       sold: DataTypes.INTEGER,
-      price: DataTypes.INTEGER,
       category: DataTypes.ENUM(
         "Hobby",
         "Houseware",
