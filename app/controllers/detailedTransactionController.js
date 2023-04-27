@@ -1,44 +1,14 @@
-const reviewService = require('../services/reviewService');
+const detailedTransactionService = require('../services/detailedTransactionService');
 
-const getReviewByProductId = async (req, res) => {
-  const id = req.params.id;
-  reviewService
-    .getReviewByProductId(id)
-    .then((reviews) => {
-      if (!reviews) {
-        res.status(404).send({
-          status: 'error',
-          message: error.message,
-          data: {},
-        });
-      } else {
-        res.status(200).send({
-          status: 'success',
-          message: 'Successfully retrieved product details',
-          data: productDetails,
-        });
-      }
-    })
-    .catch((error) => {
-      res.status(500).send({
-        status: 'error',
-        message: error.message,
-        data: {},
-      });
-    });
-};
-
-const createReview = async (req, res) => {
+const createTransactionItem = async (req, res) => {
   const data = {
-    product_id: req.body.product_id,
     user_id: req.body.user_id,
-    star: req.body.star,
-    content: req.body.content,
+    status: req.body.status,
   };
-  reviewService
-    .createReview(data)
-    .then((review) => {
-      if (!review) {
+  detailedTransactionService
+    .createTransactionItem(data)
+    .then((item) => {
+      if (!item) {
         res.status(404).send({
           status: 'error',
           message: error.message,
@@ -47,8 +17,8 @@ const createReview = async (req, res) => {
       } else {
         res.status(200).send({
           status: 'success',
-          message: 'Successfully created reviews',
-          data: review,
+          message: 'Successfully created item',
+          data: item,
         });
       }
     })
@@ -61,12 +31,12 @@ const createReview = async (req, res) => {
     });
 };
 
-const deleteReview = async (req, res) => {
+const deleteTransactionItem = async (req, res) => {
   const id = req.params.id;
-  reviewService
-    .deleteReview(id)
-    .then((review) => {
-      if (!review) {
+  detailedTransactionService
+    .deleteTransactionItem(id)
+    .then((item) => {
+      if (!item) {
         res.status(404).send({
           status: 'error',
           message: error.message,
@@ -75,8 +45,40 @@ const deleteReview = async (req, res) => {
       } else {
         res.status(200).send({
           status: 'success',
-          message: 'Successfully deleted reviews',
-          data: review,
+          message: 'Successfully deleted item',
+          data: item,
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({
+        status: 'error',
+        message: error.message,
+        data: {},
+      });
+    });
+};
+
+const updateTransactionItem = async (req, res) => {
+  const id = req.params.id;
+  const data = {
+    user_id: req.body.user_id,
+    status: req.body.status,
+  };
+  detailedTransactionService
+    .updateTransactionItem(id, data)
+    .then((item) => {
+      if (!item) {
+        res.status(404).send({
+          status: 'error',
+          message: error.message,
+          data: {},
+        });
+      } else {
+        res.status(200).send({
+          status: 'success',
+          message: 'Successfully updated item',
+          data: item,
         });
       }
     })
@@ -90,7 +92,7 @@ const deleteReview = async (req, res) => {
 };
 
 module.exports = {
-  getReviewByProductId,
-  createReview,
-  deleteReview,
+  createTransactionItem,
+  deleteTransactionItem,
+  updateTransactionItem,
 };

@@ -11,3 +11,8 @@ const deleteDetailedWishlist = (id) => {
     },
   });
 };
+
+module.exports = {
+  createDetailedWishlist,
+  deleteDetailedWishlist,
+};

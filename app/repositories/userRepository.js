@@ -38,7 +38,7 @@ const getUserAddress = (id) => {
     include: {
       model: address,
       where: {
-        user_id: id,
+        user_id: Sequelize.col('user.id'),
       },
     },
     where: {
@@ -52,7 +52,7 @@ const getProductByUser = (id) => {
     include: {
       model: product,
       where: {
-        user_id: id,
+        user_id: Sequelize.col('user.id'),
       },
     },
     where: {
@@ -66,7 +66,7 @@ const getTransactionByUser = (id) => {
     include: {
       model: transaction,
       where: {
-        id: Sequelize.col('user_id'), 
+        user_id: Sequelize.col('user.id'),
       },
     },
     where: {

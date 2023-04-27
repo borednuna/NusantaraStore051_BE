@@ -1,5 +1,5 @@
-const { cart } = require('../models');
-const { user } = require('../models');
+const { cart, Sequelize } = require('../models');
+const { detailed_card } = require('../models');
 
 const getCartById = (id) => {
   return cart.findOne({
@@ -13,9 +13,9 @@ const getCartItems = (id) => {
   return cart.findAll({
     include: [
       {
-        model: user,
+        model: detailed_card,
         where: {
-          id: Sequelize.col('cart.user_id'),
+          cart_id: Sequelize.col('cart.id'),
         },
       },
     ],

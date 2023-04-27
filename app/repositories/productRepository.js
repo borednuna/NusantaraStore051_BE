@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { product } = require('../models');
+const { product, Sequelize } = require('../models');
 const { product_details } = require('../models');
 const { image } = require('../models');
 
@@ -30,7 +30,7 @@ const getProductDetail = (id) => {
       {
         model: product_details,
         where: {
-          product_id: id,
+          product_id: Sequelize.col('product.id'),
         },
       },
     ],
@@ -46,7 +46,7 @@ const getProductImages = (id) => {
       {
         model: image,
         where: {
-          product_id: id,
+          product_id: Sequelize.col('product.id'),
         },
       },
     ],

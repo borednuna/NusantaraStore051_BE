@@ -1,4 +1,5 @@
 const { wishlist } = require('../models');
+const { product } = require('../models');
 
 const getAllDetailedWishlist = (id) => {
   return wishlist.findAll({

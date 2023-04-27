@@ -13,6 +13,8 @@ const wishlistRoutes = require('../app/routes/wishlistRoute');
 const detailedWishlistRoutes = require('../app/routes/detailedWishlistRoute');
 const transactionRoutes = require('../app/routes/transactionRoute');
 const reviewRoutes = require('../app/routes/reviewRoute');
+const detailedTransactionRoutes = require('../app/routes/detailedTransactionRoute');
+const paymentRoutes = require('../app/routes/paymentRoute');
 
 app.use(cors());
 app.use(express.json());
@@ -30,5 +32,7 @@ app.use('/wishlists', wishlistRoutes);
 app.use('/detailed_wishlists', detailedWishlistRoutes);
 app.use('/transactions', transactionRoutes);
 app.use('/reviews', reviewRoutes);
+app.use('/detailed_transactions', detailedTransactionRoutes);
+app.use('/payments', paymentRoutes);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
