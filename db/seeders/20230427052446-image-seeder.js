@@ -38,11 +38,15 @@ module.exports = {
         product_id: 2,
         name: "3",
         url: "https://down-id.img.susercontent.com/file/sg-11134201-23010-v9r3fkh6g9lvc8",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         product_id: 3,
         name: "1",
         url: "https://i.ebayimg.com/images/g/M6kAAOSwVoFfD4cj/s-l500.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     ]);
   },

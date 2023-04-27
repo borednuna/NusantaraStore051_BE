@@ -10,6 +10,16 @@ const getCartById = async (id) => {
     }
 }
 
+const getCartItems = async (id) => {
+    try {
+        const cart = cartRepository.getCartItems(id);
+        return cart;
+    }
+    catch (error) {
+        return error;
+    }
+}
+
 const createCart = async (data) => {
     try {
         const cart = cartRepository.createCart(data);
@@ -32,6 +42,7 @@ const deleteCart = async (id) => {
 
 module.exports = {
     getCartById,
+    getCartItems,
     createCart,
     deleteCart
 }
