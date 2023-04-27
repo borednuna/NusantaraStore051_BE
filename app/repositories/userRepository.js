@@ -1,7 +1,7 @@
 const { Op } = require("sequelize");
-const user = require("../models/user");
-const address = require("../models/address");
-const product = require("../models/product");
+const { user } = require("../models");
+const { address } = require("../models/address");
+const { product } = require("../models/product");
 
 const getUserById = (id) => {
   return user.findOne({

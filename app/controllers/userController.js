@@ -3,6 +3,7 @@ const userService = require("../services/userService");
 const getUserById = async (req, res) => {
   const id = req.params.id;
   userService.getUserById(id).then((users) => {
+    console.log(users)
     if (!users) {
       res.status(404).send({
         status: "error",
