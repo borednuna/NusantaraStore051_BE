@@ -16,7 +16,14 @@ const getUserById = async (req, res) => {
         data: users,
       });
     }
-  });
+  })
+  .catch(error => {
+    res.status(500).send({
+        status : 'error',
+        message : error.message,
+        data : {}
+    });
+  })  
 };
 
 const getUserByName = async (req, res) => {
@@ -35,6 +42,13 @@ const getUserByName = async (req, res) => {
         data: users,
       });
     }
+  })
+  .catch(error => {
+    res.status(500).send({
+        status : 'error',
+        message : error.message,
+        data : {}
+    });
   });
 };
 
@@ -54,6 +68,13 @@ const getSellerByName = async (req, res) => {
         data: sellers,
       });
     }
+  })
+  .catch(error => {
+    res.status(500).send({
+        status : 'error',
+        message : error.message,
+        data : {}
+    });
   });
 };
 
@@ -74,7 +95,7 @@ const createUser = async (req, res) => {
         data: user,
       });
     })
-    .catch((err) => {
+    .catch((error) => {
       res.status(500).send({
         status: "error",
         message: error.message,
@@ -94,7 +115,7 @@ const updateUser = (req, res) => {
         data: user,
       });
     })
-    .catch((err) => {
+    .catch((error) => {
       res.status(500).send({
         status: "error",
         message: error.message,
@@ -114,7 +135,7 @@ const deleteUser = (req, res) => {
         data: user,
       });
     })
-    .catch((err) => {
+    .catch((error) => {
       res.status(500).send({
         status: "error",
         message: error.message,
