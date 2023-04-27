@@ -2,11 +2,10 @@
   "name": "nusantarastore051_be",
   "version": "1.0.0",
   "description": "",
-  "main": "config/server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "node config/server.js",
-    "start": "node config/server.js",
-    "format": "prettier --write '**/*.js'"
+    "test": "node index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -29,8 +28,5 @@
     "sequelize": "^6.31.0",
     "sequelize-cli": "^6.6.0",
     "sqlite3": "^5.1.6"
-  },
-  "devDependencies": {
-    "prettier": "^2.8.8"
   }
 }

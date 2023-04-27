@@ -1,46 +1,40 @@
-"use strict";
+'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("payments", {
+    await queryInterface.createTable('payments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
-      transaction_id: {
+      transaction_id:{
         type: Sequelize.INTEGER,
         references: {
-          model: "transactions",
-          key: "id",
+          model: 'transactions',
+          key: 'id'
         },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       type: {
-        type: Sequelize.ENUM(
-          "ovo",
-          "gopay",
-          "dana",
-          "bank_transfer",
-          "cash_on_delivery"
-        ),
+        type: Sequelize.ENUM('ovo', 'gopay', 'dana', 'bank_transfer', 'cash_on_delivery')
       },
       amount: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-      },
+        type: Sequelize.DATE
+      }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("payments");
-  },
+    await queryInterface.dropTable('payments');
+  }
 };

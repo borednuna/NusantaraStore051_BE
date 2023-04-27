@@ -1,5 +1,7 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class payment extends Model {
     /**
@@ -10,27 +12,18 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       this.belongsTo(models.transaction, {
-        foreignKey: "id",
-        as: "py_id_transaction",
-      });
+        foreignKey: 'id',
+        as: 'py_id_transaction'
+      })
     }
   }
-  payment.init(
-    {
-      transaction_id: DataTypes.INTEGER,
-      type: DataTypes.ENUM(
-        "ovo",
-        "gopay",
-        "dana",
-        "bank_transfer",
-        "cash_on_delivery"
-      ),
-      amount: DataTypes.INTEGER,
-    },
-    {
-      sequelize,
-      modelName: "payment",
-    }
-  );
+  payment.init({
+    transaction_id: DataTypes.INTEGER,
+    type: DataTypes.ENUM('ovo', 'gopay', 'dana', 'bank_transfer', 'cash_on_delivery'),
+    amount: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'payment',
+  });
   return payment;
 };
