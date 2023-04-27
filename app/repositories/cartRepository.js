@@ -15,7 +15,7 @@ const getCartItems = (id) => {
       {
         model: user,
         where: {
-          user_id: id,
+          id: Sequelize.col('cart.user_id'),
         },
       },
     ],
