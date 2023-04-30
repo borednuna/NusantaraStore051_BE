@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3001;
 const cors = require('cors');
+const passport = require('./passport');
+const session = require('express-session');
 
 const userRoutes = require('../app/routes/userRoute');
 const productRoutes = require('../app/routes/productRoute');
@@ -16,10 +18,20 @@ const transactionRoutes = require('../app/routes/transactionRoute');
 const reviewRoutes = require('../app/routes/reviewRoute');
 const detailedTransactionRoutes = require('../app/routes/detailedTransactionRoute');
 const paymentRoutes = require('../app/routes/paymentRoute');
+const feedbackMailerRoutes = require('../app/routes/feedbackMailerRoute');
+const purchaseMailerRoutes = require('../app/routes/purchaseMailerRoute');
+const authRoutes = require('../app/routes/authRoute');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Set up middleware
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
@@ -36,5 +48,8 @@ app.use('/transactions', transactionRoutes);
 app.use('/reviews', reviewRoutes);
 app.use('/detailed_transactions', detailedTransactionRoutes);
 app.use('/payments', paymentRoutes);
+app.use('/feedback', feedbackMailerRoutes);
+app.use('/purchase', purchaseMailerRoutes);
+app.use('/auth', authRoutes);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
