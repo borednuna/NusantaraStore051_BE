@@ -1,5 +1,17 @@
 const { image } = require('../models');
 
+const getAllImage = () => {
+  return image.findAll();
+};
+
+const getImageByProductId = (id) => {
+  return image.findAll({
+    where: {
+      product_id: id,
+    },
+  })
+}
+
 const createImage = (data) => {
   return image.create(data);
 };
@@ -21,6 +33,8 @@ const deleteImage = (id) => {
 };
 
 module.exports = {
+  getAllImage,
+  getImageByProductId,
   createImage,
   updateImage,
   deleteImage,

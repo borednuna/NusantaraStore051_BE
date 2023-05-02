@@ -1,5 +1,14 @@
 const productRepository = require('../repositories/productRepository');
 
+const getAllProduct = async () => {
+  try {
+    const product = productRepository.getAllProduct();
+    return product;
+  } catch (error) {
+    return error;
+  }
+};
+
 const getProductById = async (id) => {
   try {
     const product = productRepository.getProductById(id);
@@ -64,6 +73,7 @@ const deleteProduct = async (id) => {
 };
 
 module.exports = {
+  getAllProduct,
   getProductById,
   getProductByName,
   getProductDetail,

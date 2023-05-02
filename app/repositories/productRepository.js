@@ -3,6 +3,10 @@ const { product, Sequelize } = require('../models');
 const { product_details } = require('../models');
 const { image } = require('../models');
 
+const getAllProduct = () => {
+  return product.findAll();
+};
+
 const getProductById = (id) => {
   return product.findOne({
     where: {
@@ -74,6 +78,7 @@ const deleteProduct = (id) => {
 };
 
 module.exports = {
+  getAllProduct,
   getProductById,
   getProductByName,
   getProductDetail,

@@ -48,6 +48,30 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        user_id: 1,
+        name: 'The Beatles - Abbey Road (Vinyl)',
+        price: 50000,
+        stock: 5,
+        sold: 3,
+        description:
+          'Abbey Road is the 11th studio album by British rock group The Beatles, released on September 26, 1969 in Great Britain and Germany. In the UK it was their twelfth album including the compilation album.',
+        category: 'Hobby',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        user_id: 2,
+        name: 'Haruki Murakami - Kafka On The Shore (ORIGINAL)',
+        price: 15000,
+        stock: 5,
+        sold: 2,
+        description:
+          'Kafka on the Shore is a metaphor. It follows no rules, it doesn’t adhere to reason. It fills you up and tearsyou down. A fugue of emotions are present, you can’t seem to figure out which of the many different realizations flooding you is most important.',
+        category: 'Books',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 

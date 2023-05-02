@@ -1,5 +1,60 @@
 const imageService = require('../services/imageService');
 
+const getAllImage = async (req, res) => {
+  imageService
+    .getAllImage()
+    .then((image) => {
+      if (!image) {
+        res.status(404).send({
+          status: 'error',
+          message: error.message,
+          data: {},
+        });
+      } else {
+        res.status(200).send({
+          status: 'success',
+          message: 'Successfully retrieved image',
+          data: image,
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({
+        status: 'error',
+        message: error.message,
+        data: {},
+      });
+    });
+};
+
+const getImageByProductId = async (req, res) => {
+  const id = req.params.id;
+  imageService
+    .getImageByProductId(id)
+    .then((image) => {
+      if (!image) {
+        res.status(404).send({
+          status: 'error',
+          message: error.message,
+          data: {},
+        });
+      } else {
+        res.status(200).send({
+          status: 'success',
+          message: 'Successfully retrieved image',
+          data: image,
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({
+        status: 'error',
+        message: error.message,
+        data: {},
+      });
+    });
+};
+
 const createImage = async (req, res) => {
   const data = {
     product_id: req.body.product_id,
@@ -94,6 +149,8 @@ const deleteImage = async (req, res) => {
 };
 
 module.exports = {
+  getAllImage,
+  getImageByProductId,
   createImage,
   updateImage,
   deleteImage,

@@ -26,19 +26,19 @@ module.exports = (sequelize, DataTypes) => {
 
       this.belongsToMany(models.transaction, {
         through: 'detailed_transaction',
-        foreignKey: 'product_id',
+        foreignKey: 'id',
         as: 'pr_id_transaction',
       });
 
       this.belongsToMany(models.cart, {
         through: 'detailed_cart',
-        foreignKey: 'product_id',
+        foreignKey: 'id',
         as: 'pr_id_cart',
       });
 
       this.belongsToMany(models.wishlist, {
         through: 'detailed_wishlist',
-        foreignKey: 'product_id',
+        foreignKey: 'id',
         as: 'pr_id_wishlist',
       });
     }

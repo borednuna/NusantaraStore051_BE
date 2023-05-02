@@ -1,19 +1,12 @@
 const { wishlist } = require('../models');
-const { product } = require('../models');
+const { detailed_wishlist } = require('../models');
 
 const getAllDetailedWishlist = (id) => {
   return wishlist.findAll({
     where: {
       user_id: id,
     },
-    include: [
-      {
-        model: product,
-        where: {
-          id: Sequelize.col('detailed_wishlist.product_id'),
-        },
-      },
-    ],
+    include: {detailed_wishlist}
   });
 };
 

@@ -1,5 +1,23 @@
 const imageRepository = require('../repositories/imageRepository');
 
+const getAllImage = async () => { 
+  try {
+    const image = imageRepository.getAllImage();
+    return image;
+  } catch (error) {
+    return error;
+  }
+};
+
+const getImageByProductId = async (id) => {
+  try {
+    const image = imageRepository.getImageByProductId(id);
+    return image;
+  } catch (error) {
+    return error;
+  }
+};
+
 const createImage = async (data) => {
   try {
     const image = imageRepository.createImage(data);
@@ -28,6 +46,8 @@ const deleteImage = async (id) => {
 };
 
 module.exports = {
+  getAllImage,
+  getImageByProductId,
   createImage,
   updateImage,
   deleteImage,

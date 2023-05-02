@@ -1,5 +1,32 @@
 const productService = require('../services/productService');
 
+const getAllProducts = async (req, res) => {
+  productService
+    .getAllProduct()
+    .then((products) => {
+      if (!products) {
+        res.status(404).send({
+          status: 'error',
+          message: error.message,
+          data: {},
+        });
+      } else {
+        res.status(200).send({
+          status: 'success',
+          message: 'Successfully retrieved products',
+          data: products,
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({
+        status: 'error',
+        message: error.message,
+        data: {},
+      });
+    });
+};
+
 const getProductById = async (req, res) => {
   const id = req.params.id;
   productService
@@ -214,6 +241,7 @@ const deleteProduct = async (req, res) => {
 };
 
 module.exports = {
+  getAllProducts,
   getProductById,
   getProductByName,
   getProductDetail,
