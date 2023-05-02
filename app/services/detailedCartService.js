@@ -1,5 +1,14 @@
 const detailedCartRepository = require('../repositories/detailedCartRepository');
 
+const getDetailedCartByCartId = async (id) => {
+  try {
+    const detailedCart = await detailedCartRepository.getDetailedCartByCartId(id);
+    return detailedCart;
+  } catch (error) {
+    return error;
+  }
+};
+
 const createDetailedCart = async (data) => {
   try {
     const detailedCart = await detailedCartRepository.createDetailedCart(data);
@@ -31,6 +40,7 @@ const deleteDetailedCart = async (id) => {
 };
 
 module.exports = {
+  getDetailedCartByCartId,
   createDetailedCart,
   updateDetailedCart,
   deleteDetailedCart,

@@ -12,7 +12,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   queryInterface.bulkInsert('wishlists', [
+   queryInterface.bulkInsert('carts', [
     {
       user_id: 1,
       createdAt: new Date(),
@@ -27,9 +27,8 @@ module.exports = {
       user_id: 3,
       createdAt: new Date(),
       updatedAt: new Date(),
-    },
-  ], {});
-  },
+    }
+  ])},
 
   async down (queryInterface, Sequelize) {
     /**

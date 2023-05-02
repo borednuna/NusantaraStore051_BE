@@ -12,14 +12,14 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-   queryInterface.bulkInsert('detailed_wishlists', [
-    {
-      wishlist_id: 1,
-      product_id: 1,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }
-  ], {});
+    queryInterface.bulkInsert('detailed_carts', [
+      {
+        cart_id: 1,
+        product_id: 1,
+        item_amount: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }])
   },
 
   async down (queryInterface, Sequelize) {
