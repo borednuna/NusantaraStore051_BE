@@ -2,7 +2,6 @@ const Sequelize = require('sequelize');
 const express = require('express');
 const app = express();
 const port = 3001;
-const cors = require('cors');
 const passport = require('./passport');
 const session = require('express-session');
 const globals = require('./globals');
@@ -23,10 +22,6 @@ const paymentRoutes = require('../app/routes/paymentRoute');
 const feedbackMailerRoutes = require('../app/routes/feedbackMailerRoute');
 const purchaseMailerRoutes = require('../app/routes/purchaseMailerRoute');
 const authRoutes = require('../app/routes/authRoute');
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Set up middleware
 app.use(session({
