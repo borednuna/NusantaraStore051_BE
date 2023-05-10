@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         as: 'pd_id_product',
       });
 
+      this.hasOne(models.detailed_cart, {
+        foreignKey: 'id',
+        as: 'dc_id_product',
+      });
+
       this.hasMany(models.review, {
         foreignKey: 'id',
         as: 'rv_id_product',

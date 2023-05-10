@@ -13,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'id',
         as: 'add_id_user',
       });
+
+      this.belongsTo(models.transaction, {
+        foreignKey: 'id',
+        as: 'add_id_transaction',
+      });
     }
   }
   address.init(

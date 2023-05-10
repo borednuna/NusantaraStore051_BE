@@ -1,5 +1,13 @@
 const { address } = require('../models');
 
+const getAddressByUserId = (user_id) => {
+  return address.findAll({
+    where: {
+      user_id: user_id,
+    },
+  });
+};
+
 const createAddress = (data) => {
   return address.create(data);
 };
@@ -21,6 +29,7 @@ const deleteAddress = (id) => {
 };
 
 module.exports = {
+  getAddressByUserId,
   createAddress,
   updateAddress,
   deleteAddress,

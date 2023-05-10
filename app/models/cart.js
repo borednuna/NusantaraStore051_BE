@@ -14,6 +14,11 @@ module.exports = (sequelize, DataTypes) => {
         as: 'ct_id_user',
       });
 
+      this.hasOne(models.detailed_cart, {
+        foreignKey: 'id',
+        as: 'dc_id_cart',
+      });
+
       this.belongsToMany(models.product, {
         through: 'detailed_cart',
         foreignKey: 'id',

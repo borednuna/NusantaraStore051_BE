@@ -1,26 +1,11 @@
 const { cart, Sequelize } = require('../models');
-const { detailed_card } = require('../models');
+const { detailed_cart } = require('../models');
+const { product } = require('../models');
 
 const getCartById = (id) => {
   return cart.findOne({
     where: {
-      id: id,
-    },
-  });
-};
-
-const getCartItems = (id) => {
-  return cart.findAll({
-    include: [
-      {
-        model: detailed_card,
-        where: {
-          cart_id: Sequelize.col('cart.id'),
-        },
-      },
-    ],
-    where: {
-      id: id,
+      user_id: id,
     },
   });
 };
@@ -39,7 +24,6 @@ const deleteCart = (id) => {
 
 module.exports = {
   getCartById,
-  getCartItems,
   createCart,
   deleteCart,
 };

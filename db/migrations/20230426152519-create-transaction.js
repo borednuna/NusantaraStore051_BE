@@ -18,6 +18,15 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
       },
+      address_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'addresses',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
       status: {
         type: Sequelize.ENUM('pending', 'packing', 'delivering', 'received'),
       },

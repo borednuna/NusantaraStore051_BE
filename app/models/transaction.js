@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
         as: 'py_id_transaction',
       });
 
+      this.hasOne(models.address, {
+        foreignKey: 'id',
+        as: 'add_id_transaction',
+      });
+
       this.belongsToMany(models.product, {
         through: 'detailed_transaction',
         foreignKey: 'id',
@@ -29,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   transaction.init(
     {
       user_id: DataTypes.INTEGER,
+      address_id: DataTypes.INTEGER,
       status: DataTypes.ENUM('pending', 'packing', 'delivering', 'received'),
     },
     {

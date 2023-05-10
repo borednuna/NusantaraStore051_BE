@@ -1,5 +1,33 @@
 const addressService = require('../services/addressService');
 
+const getAddressByUserId = async (req, res) => {
+  const user_id = req.params.user_id;
+  addressService
+    .getAddressByUserId(user_id)
+    .then((address) => {
+      if (!address) {
+        res.status(404).send({
+          status: 'error',
+          message: error.message,
+          data: {},
+        });
+      } else {
+        res.status(200).send({
+          status: 'success',
+          message: 'Successfully retrieved address',
+          data: address,
+        });
+      }
+    })
+    .catch((error) => {
+      res.status(500).send({
+        status: 'error',
+        message: error.message,
+        data: {},
+      });
+    });
+};
+
 const createAddress = async (req, res) => {
   const data = {
     user_id: req.body.user_id,
@@ -72,6 +100,7 @@ const deleteAddress = async (req, res) => {
 };
 
 module.exports = {
+  getAddressByUserId,
   createAddress,
   updateAddress,
   deleteAddress,
