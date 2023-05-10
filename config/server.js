@@ -1,9 +1,11 @@
+const Sequelize = require('sequelize');
 const express = require('express');
 const app = express();
 const port = 3001;
 const cors = require('cors');
 const passport = require('./passport');
 const session = require('express-session');
+const globals = require('./globals');
 
 const userRoutes = require('../app/routes/userRoute');
 const productRoutes = require('../app/routes/productRoute');
@@ -21,10 +23,6 @@ const paymentRoutes = require('../app/routes/paymentRoute');
 const feedbackMailerRoutes = require('../app/routes/feedbackMailerRoute');
 const purchaseMailerRoutes = require('../app/routes/purchaseMailerRoute');
 const authRoutes = require('../app/routes/authRoute');
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Set up middleware
 app.use(session({
@@ -51,5 +49,33 @@ app.use('/payments', paymentRoutes);
 app.use('/feedback', feedbackMailerRoutes);
 app.use('/purchase', purchaseMailerRoutes);
 app.use('/auth', authRoutes);
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// test connection
+const sequelize = new Sequelize(globals.dbname, globals.dbuser, globals.dbpass, {
+  host: globals.dbhost,
+  dialect: 'postgres', /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */
+  port: globals.dbport,
+  dialectOptions: {
+    ssl: {
+      require: true, 
+      rejectUnauthorized: false 
+    }
+  },
+});
+
+const testConnection = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+}
+
+testConnection();
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
