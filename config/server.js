@@ -7,6 +7,10 @@ const passport = require('./passport');
 const session = require('express-session');
 const globals = require('./globals');
 
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const userRoutes = require('../app/routes/userRoute');
 const productRoutes = require('../app/routes/productRoute');
 const imageRoutes = require('../app/routes/imageRoute');
@@ -49,10 +53,6 @@ app.use('/payments', paymentRoutes);
 app.use('/feedback', feedbackMailerRoutes);
 app.use('/purchase', purchaseMailerRoutes);
 app.use('/auth', authRoutes);
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // test connection
 const sequelize = new Sequelize(globals.dbname, globals.dbuser, globals.dbpass, {
